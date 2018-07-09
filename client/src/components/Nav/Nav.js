@@ -7,7 +7,6 @@ const Nav = () => (
   <a className="navbar-brand" href="/">
   <img src={logo} className="App-logo" alt="logo" />
 </a>
-<button type="button" class="btn btn-outline-secondary">Sign-Up/Sign-In</button>
   </nav>
 );
 

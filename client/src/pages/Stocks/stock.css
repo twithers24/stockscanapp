@@ -1,0 +1,29 @@
+.stockSearch {
+padding-top: 15px;
+
+}
+
+.stockList {
+    text-align: center;
+    font-size: 35px;
+    color: white;
+    font-family: 'Share Tech', sans-serif;
+}
+
+.list-group-item {
+    background-color: transparent;
+}
+
+.list-group {
+    border-bottom: 1px solid gray;
+}
+
+.saveStock {
+float: right;
+background-color: gray;
+border: white;
+}
+
+.searchRes{
+content: center;
+}

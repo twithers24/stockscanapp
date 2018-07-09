@@ -8,6 +8,8 @@ import SingleStockBtn from "../../components/singleBtn";
 import { Col, Row, Container } from "../../components/Grid";
 import { List, ListItem } from "../../components/List";
 import { Input, FormBtn } from "../../components/Form";
+import "./stock.css";
+import Label from 'react-bootstrap/lib/Label';
  
 
 class Stocks extends Component {
@@ -161,55 +163,47 @@ singleStockPage=(event)=>{
     return (
       <Container fluid>
         <Row>
-          <Col size="md-8">
-            <form>
+          <Col size="md-12">
+            <form className={"stockSearch"}>
               <Input name="search" placeholder="Ticker Search"onChange={this.handleInputChange} />
-              
               <FormBtn
               onClick={this.handleFormSubmit}
               >Submit</FormBtn>
             </form>
           </Col>
-          </Row>
-         <Row> 
-         <Col size="md-6 sm-6">
-              <h1>Tickers Searched</h1>
-
+        </Row>
+        <Row>  
+         <Col size="md-6 sm-12">
+         <div classname={"searchRes"}>
             {this.state.stockRec.length ? (
               <List>
                 {this.state.stockRec.map((stock, index) => (
                   <ListItem index={index}  key={index}>
-
-                    {/* <a href={stock}> */}
                       <strong>
-                        {stock["1. symbol"].toUpperCase()}
-                        <br /> 
-                        
-                        
-                        {/* <div name={stock.stockSymbol} data-refresh ={setInterval(this.stockRefresh(stock.stockSymbol),1000)}> Price: {this.state.refreshPrice}</div> */}
-                        <div name={stock["1. symbol"]} > Price: {stock["2. price"]} </div>
+                        {stock["1. symbol"].toUpperCase()} 
+                        <div name={stock["1. symbol"]} > Price: {stock["2. price"]} 
+                        <SaveBtn id={index} onClick={this.savestock}>Save</SaveBtn>
+                        </div>
                       </strong>
-                    {/* </a> */}
-                    <br />
-                    <SaveBtn id={index} onClick={this.savestock}>Save</SaveBtn>
-                    
+                    {/* </a> */}                  
                   </ListItem>
-                ))}
-      
-                
+                ))} 
               </List>
             ) : (
               <h3>No Results to Display</h3>
             )}
+            </div>
           </Col>
+          </Row>
+          <br />
+          <br />
+          <Row>   
           {/* {this.savedStockArr()} */}
-          <Col size="md-12 sm-6">
-            <Jumbotron>
-              <h1>My Saved Stocks</h1>
-            </Jumbotron>
+          <Col size="md-9 sm-12">
+          <div  className={"stockList"}>
+          <Label>MY SAVED STOCKS</Label>
             {/* {this.state.savedStock.length>2 ? ( */}
             {this.state.savedPriceArr!==undefined && !this.state.savedPriceArr["Information"] && this.state.savedPriceArr!==[]?(
-            
               <List>
                 {this.state.savedPriceArr.map((stocks, index) => (
                   <ListItem  key={index}>
@@ -223,7 +217,7 @@ singleStockPage=(event)=>{
                       </strong>
                     
                     <br />
-                    <SingleStockBtn id={stocks["1. symbol"].toLowerCase()} onClick={this.singleStockPage}/>
+                    <SingleStockBtn id={stocks["1. symbol"].toLowerCase()} onClick={this.singleStockPage}>More Statistics</SingleStockBtn>
                     <DeleteBtn id={stocks["1. symbol"]} onClick={this.deleteStocks}/>
                   </ListItem>
                 ))}
@@ -231,9 +225,9 @@ singleStockPage=(event)=>{
             ) : (
               <h3>No Results to Display</h3>
             )}
+            </div>
           </Col>
-          </Row>
-        
+        </Row>
         
       </Container>
       
