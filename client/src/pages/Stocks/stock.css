@@ -27,3 +27,7 @@ border: white;
 .searchRes{
 content: center;
 }
+
+.side{
+    height: 100%;
+}

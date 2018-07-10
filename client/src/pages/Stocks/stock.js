@@ -10,7 +10,17 @@ import { List, ListItem } from "../../components/List";
 import { Input, FormBtn } from "../../components/Form";
 import "./stock.css";
 import Label from 'react-bootstrap/lib/Label';
+import DateTimePicker from 'react-datetime-picker';
+
+class MyApp extends Component {
+  state = {
+    date: new Date(),
+  }
  
+  onChange = date => this.setState({ date })
+ 
+
+}
 
 class Stocks extends Component {
   state = {
@@ -163,17 +173,16 @@ singleStockPage=(event)=>{
     return (
       <Container fluid>
         <Row>
-          <Col size="md-12">
+          <Col size="md-3 sm-12">
+          <div className="side">
             <form className={"stockSearch"}>
               <Input name="search" placeholder="Ticker Search"onChange={this.handleInputChange} />
               <FormBtn
               onClick={this.handleFormSubmit}
               >Submit</FormBtn>
             </form>
-          </Col>
-        </Row>
-        <Row>  
-         <Col size="md-6 sm-12">
+         <br />
+         <br />   
          <div classname={"searchRes"}>
             {this.state.stockRec.length ? (
               <List>
@@ -193,13 +202,16 @@ singleStockPage=(event)=>{
               <h3>No Results to Display</h3>
             )}
             </div>
-          </Col>
-          </Row>
-          <br />
-          <br />
-          <Row>   
+            </div>
+          </Col>  
           {/* {this.savedStockArr()} */}
           <Col size="md-9 sm-12">
+          <div className="date">
+        <DateTimePicker
+          onChange={this.onChange}
+          value={this.state.date}
+        />
+      </div>
           <div  className={"stockList"}>
           <Label>MY SAVED STOCKS</Label>
             {/* {this.state.savedStock.length>2 ? ( */}

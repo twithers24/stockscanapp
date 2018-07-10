@@ -70,16 +70,12 @@ class Home extends Component{
     render() {
         return (
     <Container fluid>
-    <br/>
     <Row>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
-    </Row>
-    <Row>
-      <div className={"loginLabel"} size="md-6 sm 12">
+      <div className={"loginLabel"} size="md-3 sm 12">
       </div>
         <Col size="md-6 sm 12">
         <div className={"loginLabel"}>
-        <Label>New</Label>
+        <Label>Login</Label>
         
         </div>
         <div className={"col-md-12 loginForm"}>
@@ -105,7 +101,7 @@ class Home extends Component{
 
       </div>
         </Col>
-      <div className={"loginLabel"} size="md-6 sm 12">
+      <div className={"loginLabel"} size="md-3 sm 12">
 
       </div>  
      < br/>
